@@ -9,7 +9,7 @@ impl Palindrome for String {
         temp.retain(|c| c.is_alphanumeric());
 
         let mut chars = temp.trim().chars();
-        
+
         while let (Some(from_front), Some(from_back)) = (chars.next(), chars.next_back()) {
             if from_front != from_back {
                 return false;
@@ -23,7 +23,7 @@ impl Palindrome for String {
 #[cfg(test)]
 mod tests {
     use super::Palindrome;
-    
+
     #[test]
     fn some_palindromes() {
         assert!(String::from("tattarrattat").is_palindrome());

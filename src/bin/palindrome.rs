@@ -1,5 +1,5 @@
+use algorithms_and_data_structure::Palindrome;
 use std::io;
-use algorithms_and_data_structure::algorithms::palindrome::Palindrome;
 
 fn main() {
     let mut buffer = String::new();
