@@ -1,3 +1,5 @@
+use super::vowel::Vowel;
+
 pub trait Is {
     fn is_all_vowel(&self) -> bool;
     fn is_all_consonant(&self) -> bool;
@@ -7,7 +9,7 @@ pub trait Is {
 
 impl Is for String {
     fn is_all_vowel(&self) -> bool {
-        normalize(self).chars().all(is_vowel)
+        normalize(self).chars().all(|c| c.is_vowel())
     }
 
     fn is_all_consonant(&self) -> bool {
@@ -42,16 +44,8 @@ fn normalize(text: &str) -> String {
     text.trim().to_lowercase()
 }
 
-fn is_vowel(c: char) -> bool {
-    if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' {
-        true
-    } else {
-        false
-    }
-}
-
-fn is_consonant(c: char) -> bool {
-    c.is_alphabetic() && !is_vowel(c)
+pub fn is_consonant(c: char) -> bool {
+    c.is_alphabetic() && !c.is_vowel()
 }
 
 fn is_digit(c: char) -> bool {
